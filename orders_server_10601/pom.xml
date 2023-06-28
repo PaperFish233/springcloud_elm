@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.neusoft</groupId>
+    <artifactId>springcloud_elm</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>orders_server_10601</artifactId>
+	<dependencies>
+		<!--以下是boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!--热部署 gav -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<!--数据层相关依赖 -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!--子包 -->
+		<dependency>
+	        <groupId>com.neusoft</groupId>
+	        <artifactId>business_server_10300</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+    	</dependency>
+		<dependency>
+	        <groupId>com.neusoft</groupId>
+	        <artifactId>business_server_10301</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+    	</dependency>
+    	<dependency>
+	        <groupId>com.neusoft</groupId>
+	        <artifactId>food_server_10200</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+    	</dependency>
+    	<dependency>
+	        <groupId>com.neusoft</groupId>
+	        <artifactId>food_server_10201</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+    	</dependency>
+    	<!--加入eureka clinet的依赖 -->
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<!--加入spring-cloud-config的依赖 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+	</dependencies>
+</project>

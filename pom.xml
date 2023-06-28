@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.neusoft</groupId>
+	<artifactId>springcloud_elm</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<!-- 统一JAR包和版本号的管理 -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<!-- 
+	    dependmanagement是用在父工程中声明依赖，不引用。子模块继承之后再引包。 
+	         作用是，锁定版本，子模块不用写grouid and version 
+	-->
+	<dependencyManagement>
+		<dependencies>
+			<!--boot 2.3.3 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.3.3.RELEASE</version>
+				<type>pom</type>
+				<!-- Maven也是单继承。这里继承了spring-boot中的dependencyManagement 
+                     但是下面还要继承spring-cloud中的dependencyManagement。 
+					使用scope=import就可以实现多继承了 
+                -->
+				<scope>import</scope>
+			</dependency>
+			<!--cloud hoxton.sr9 -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Hoxton.SR9</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<!-- 创建完子工程后，此处自动添加子工程模块 -->
+	<modules>
+		<module>user_server_10100</module>
+		<module>food_server_10200</module>
+		<module>business_server_10300</module>
+		<module>cart_server_10400</module>
+		<module>deliveryaddress_server_10500</module>
+		<module>orders_server_10600</module>
+		<module>eureka_server_13000</module>
+		<module>eureka_server_13001</module>
+		<module>food_server_10201</module>
+		<module>gateway_server_14000</module>
+		<module>business_server_10301</module>
+		<module>cart_server_10401</module>
+		<module>orders_server_10601</module>
+		<module>config_server_15000</module>
+		<module>config_server_15001</module>
+	</modules>
+</project>
